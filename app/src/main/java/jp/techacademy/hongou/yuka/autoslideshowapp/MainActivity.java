@@ -24,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PERMISSIONS_REQUEST_CODE = 100;
 
-    ImageView mImageView;
     private Cursor cursor;
-    Button mNextButton;
-    Button mBackButton;
-    Button mAutoSlideButton;
     Timer mTimer;
     int mTimerSec = 0;
 
