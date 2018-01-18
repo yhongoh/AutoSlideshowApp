@@ -38,14 +38,18 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //パーミッションの許可状態を確認する
             if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                if (cursor != null){
                 //許可されている
                 getContentsInfo();
+                }
             } else {
                 //許可されていないので、ダイアログを表示する
                 requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSIONS_REQUEST_CODE);
             }
         } else {
-            getContentsInfo();
+            if (cursor != null) {
+                getContentsInfo();
+            }
         }
 
         final Button mBackButton = (Button) findViewById(R.id.backButton);
